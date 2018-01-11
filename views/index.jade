@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  for evt in googleCalendarEvents
+    h2= evt.summary
+    h4 Date: #{evt.date}
+    p #{evt.description}
