@@ -7,7 +7,7 @@ const CALENDAR_ID = {
 };
 const TIMEZONE = 'UTC-05:00';
 const key = process.env.GCA_PRIVATE_KEY;
-module.exports.key = key;
+module.exports.key = decodeURIComponent(key);
 module.exports.calendarUrl = CALENDAR_URL;
 module.exports.serviceAcctId = SERVICE_ACCT_ID;
 module.exports.calendarId = CALENDAR_ID;
