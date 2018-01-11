@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
       for (let i = 0; i < json.length; i++) {
         let punkShow = {
           summary: json[i].summary,
-          date: moment(json[i].start.dateTime).format(),
+          date: moment(json[i].start.dateTime).format('MMMM Do YYYY, h:mm a'),
           description: json[i].description
         };
         bettosEvents.push(punkShow);
