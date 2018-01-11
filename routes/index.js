@@ -1,4 +1,5 @@
 var express = require('express');
+var moment = require('moment');
 var router = express.Router();
 const CONFIG = require('./settings.js');
 const CalendarAPI = require('node-google-calendar');
@@ -19,7 +20,7 @@ router.get('/', function(req, res, next) {
       for (let i = 0; i < json.length; i++) {
         let punkShow = {
           summary: json[i].summary,
-          date: json[i].start.dateTime,
+          date: moment(json[i].start.dateTime).format(),
           description: json[i].description
         };
         bettosEvents.push(punkShow);
@@ -28,7 +29,7 @@ router.get('/', function(req, res, next) {
         console.log('List of events on calendar within time-range:');
         console.log(json);
 
-        res.render('index', { title: "weekend at betto'z", googleCalendarEvents: bettosEvents });
+        res.render('index', { title: "Weekend @ Betty's", googleCalendarEvents: bettosEvents });
     }).catch(err => {
         //Error
         console.log('Error: listSingleEvents -' + err.message);

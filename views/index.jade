@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Here's a listing of all the shows going down at Betto'z
   for evt in googleCalendarEvents
     h2= evt.summary
     h4 Date: #{evt.date}
